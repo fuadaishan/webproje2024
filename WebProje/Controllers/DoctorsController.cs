@@ -118,7 +118,7 @@ public class DoctorsController : Controller
     public IActionResult UpdateSessionTime(int sessionTime)
     {
         string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        Doctor doctor = (from d in _context.Doctors
+        Doctor doctor = (from d in _context.Doctors 
             where d.UserId == userId
             select d).First();
         doctor.SessionTime = sessionTime;
